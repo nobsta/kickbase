@@ -6,15 +6,15 @@
     <title>Manager Übersicht - Globaler Button Fix</title>
     <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; background-color: #f4f4f9; color: #333; }
-        
-        .accordion-container { 
-            max-width: 600px; 
-            margin: 0 auto; 
+
+        .accordion-container {
+            max-width: 600px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-        
+
         .header-box {
             display: flex;
             justify-content: space-between;
@@ -22,9 +22,9 @@
             max-width: 600px;
             margin: 0 auto 20px auto;
         }
-        
+
         h2 { margin: 0; color: #2c3e50; }
-        
+
         .toggle-all-btn {
             background-color: #4a5568;
             color: white;
@@ -37,11 +37,11 @@
             transition: background-color 0.2s;
             user-select: none;
         }
-        
+
         .toggle-all-btn:hover {
             background-color: #2d3748;
         }
-        
+
         details {
             background: white;
             border-radius: 8px;
@@ -49,7 +49,7 @@
             overflow: hidden;
             width: 100%;
         }
-        
+
         summary {
             padding: 15px 20px;
             font-weight: bold;
@@ -75,11 +75,11 @@
             font-weight: bold;
             color: #4a5568;
         }
-        
+
         .points-text {
             margin-right: 15px;
         }
-        
+
         /* Der stabile CSS-Pfeil */
         .arrow-box {
             display: inline-block;
@@ -91,7 +91,7 @@
             transition: transform 0.2s ease;
             margin-bottom: 4px;
         }
-        
+
         details[open] .arrow-box {
             transform: rotate(-135deg);
             margin-bottom: -2px;
@@ -103,7 +103,7 @@
             list-style: none;
             border-top: 1px solid #cbd5e1;
         }
-        
+
         .player-item {
             padding: 12px 20px;
             display: flex;
@@ -111,11 +111,11 @@
             background-color: #ffffff;
             border-bottom: 1px solid #f1f5f9;
         }
-        
+
         .player-item:last-child {
             border-bottom: none;
         }
-        
+
         .player-points {
             font-weight: bold;
             color: #718096;
@@ -128,20 +128,20 @@
         <h2>Manager & Spieler</h2>
         <button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAllElements()">Alle aufklappen</button>
     </div>
-    
+
     <div class="accordion-container">
         <details class="manager-details">
             <summary>
                 <span>1. Vel12</span>
                 <span class="right-side">
-                <span class="points-text">1281 Pkt.</span>
+                <span class="points-text">1271 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
             <ul class="player-list">
                   <li class="player-item">
                     <span>Matanović</span>
-                    <span class="points">293 Pkt.</span>
+                    <span class="points">291 Pkt.</span>
                 </li>
                     <li class="player-item">
                     <span>Petkov</span>
@@ -161,7 +161,7 @@
             <summary>
                 <span>2. Ansa Josh</span>
                 <span class="right-side">
-                <span class="points-text">1090 Pkt.</span>
+                <span class="points-text">1085 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -180,7 +180,7 @@
                 </li>
                     <li class="player-item">
                     <span>Eggestein</span>
-                    <span class="points">124 Pkt.</span>
+                    <span class="points">119 Pkt.</span>
                 </li>
                 </ul>
         </details>
@@ -188,7 +188,7 @@
             <summary>
                 <span>3. Maestro Kloppo</span>
                 <span class="right-side">
-                <span class="points-text">1073 Pkt.</span>
+                <span class="points-text">1078 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -206,43 +206,16 @@
                     <span class="points">172 Pkt.</span>
                 </li>
                     <li class="player-item">
-                    <span>Jóhannesson</span>
-                    <span class="points">143 Pkt.</span>
+                    <span>Banks</span>
+                    <span class="points">145 Pkt.</span>
                 </li>
                 </ul>
         </details>
             <details class="manager-details">
             <summary>
-                <span>4. Jose</span>
+                <span>4. sebinator10</span>
                 <span class="right-side">
-                <span class="points-text">1033 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-                    <span>Castello Jr.</span>
-                    <span class="points">199 Pkt.</span>
-                </li>
-                    <li class="player-item">
-                    <span>Karius</span>
-                    <span class="points">192 Pkt.</span>
-                </li>
-                    <li class="player-item">
-                    <span>Ginter</span>
-                    <span class="points">185 Pkt.</span>
-                </li>
-                    <li class="player-item">
-                    <span>Guirassy</span>
-                    <span class="points">180 Pkt.</span>
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>5. sebinator10</span>
-                <span class="right-side">
-                <span class="points-text">968 Pkt.</span>
+                <span class="points-text">1005 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -253,7 +226,7 @@
                 </li>
                     <li class="player-item">
                     <span>Kade</span>
-                    <span class="points">241 Pkt.</span>
+                    <span class="points">253 Pkt.</span>
                 </li>
                     <li class="player-item">
                     <span>Bredlow</span>
@@ -261,40 +234,40 @@
                 </li>
                     <li class="player-item">
                     <span>Pieper</span>
-                    <span class="points">76 Pkt.</span>
+                    <span class="points">95 Pkt.</span>
                 </li>
                 </ul>
         </details>
             <details class="manager-details">
             <summary>
-                <span>6. Quälix</span>
+                <span>5. Jose</span>
                 <span class="right-side">
-                <span class="points-text">865 Pkt.</span>
+                <span class="points-text">992 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
             <ul class="player-list">
                   <li class="player-item">
-                    <span>Dahmen</span>
-                    <span class="points">224 Pkt.</span>
+                    <span>Castello Jr.</span>
+                    <span class="points">199 Pkt.</span>
                 </li>
                     <li class="player-item">
-                    <span>Amiri</span>
-                    <span class="points">167 Pkt.</span>
+                    <span>Ginter</span>
+                    <span class="points">194 Pkt.</span>
                 </li>
                     <li class="player-item">
-                    <span>Koch</span>
-                    <span class="points">132 Pkt.</span>
+                    <span>Guirassy</span>
+                    <span class="points">180 Pkt.</span>
                 </li>
                     <li class="player-item">
-                    <span>Kübler</span>
-                    <span class="points">103 Pkt.</span>
+                    <span>Karius</span>
+                    <span class="points">142 Pkt.</span>
                 </li>
                 </ul>
         </details>
             <details class="manager-details">
             <summary>
-                <span>7. Iniestbert</span>
+                <span>6. Iniestbert</span>
                 <span class="right-side">
                 <span class="points-text">863 Pkt.</span>
                 <span class="arrow-box"></span>
@@ -321,9 +294,36 @@
         </details>
             <details class="manager-details">
             <summary>
+                <span>7. Quälix</span>
+                <span class="right-side">
+                <span class="points-text">853 Pkt.</span>
+                <span class="arrow-box"></span>
+                </span>
+            </summary>
+            <ul class="player-list">
+                  <li class="player-item">
+                    <span>Dahmen</span>
+                    <span class="points">213 Pkt.</span>
+                </li>
+                    <li class="player-item">
+                    <span>Amiri</span>
+                    <span class="points">167 Pkt.</span>
+                </li>
+                    <li class="player-item">
+                    <span>Koch</span>
+                    <span class="points">132 Pkt.</span>
+                </li>
+                    <li class="player-item">
+                    <span>Kübler</span>
+                    <span class="points">102 Pkt.</span>
+                </li>
+                </ul>
+        </details>
+            <details class="manager-details">
+            <summary>
                 <span>8. Patrick</span>
                 <span class="right-side">
-                <span class="points-text">779 Pkt.</span>
+                <span class="points-text">778 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -338,7 +338,7 @@
                 </li>
                     <li class="player-item">
                     <span>Beste</span>
-                    <span class="points">130 Pkt.</span>
+                    <span class="points">128 Pkt.</span>
                 </li>
                     <li class="player-item">
                     <span>Gutiérrez</span>
@@ -377,7 +377,7 @@
             <summary>
                 <span>10. Alfred Tatar</span>
                 <span class="right-side">
-                <span class="points-text">726 Pkt.</span>
+                <span class="points-text">721 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -388,7 +388,7 @@
                 </li>
                     <li class="player-item">
                     <span>Rieder</span>
-                    <span class="points">200 Pkt.</span>
+                    <span class="points">195 Pkt.</span>
                 </li>
                     <li class="player-item">
                     <span>Gruda</span>
@@ -402,36 +402,9 @@
         </details>
             <details class="manager-details">
             <summary>
-                <span>11. gassi</span>
+                <span>11. Sir Alex</span>
                 <span class="right-side">
-                <span class="points-text">714 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-                    <span>Atubolu</span>
-                    <span class="points">130 Pkt.</span>
-                </li>
-                    <li class="player-item">
-                    <span>Lochoshvili</span>
-                    <span class="points">121 Pkt.</span>
-                </li>
-                    <li class="player-item">
-                    <span>Konstantelias</span>
-                    <span class="points">114 Pkt.</span>
-                </li>
-                    <li class="player-item">
-                    <span>Conté</span>
-                    <span class="points">106 Pkt.</span>
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>12. Sir Alex</span>
-                <span class="right-side">
-                <span class="points-text">704 Pkt.</span>
+                <span class="points-text">719 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -456,9 +429,36 @@
         </details>
             <details class="manager-details">
             <summary>
+                <span>12. gassi</span>
+                <span class="right-side">
+                <span class="points-text">706 Pkt.</span>
+                <span class="arrow-box"></span>
+                </span>
+            </summary>
+            <ul class="player-list">
+                  <li class="player-item">
+                    <span>Atubolu</span>
+                    <span class="points">130 Pkt.</span>
+                </li>
+                    <li class="player-item">
+                    <span>Lochoshvili</span>
+                    <span class="points">121 Pkt.</span>
+                </li>
+                    <li class="player-item">
+                    <span>Konstantelias</span>
+                    <span class="points">114,verkauft Pkt.</span>
+                </li>
+                    <li class="player-item">
+                    <span>Conté</span>
+                    <span class="points">106 Pkt.</span>
+                </li>
+                </ul>
+        </details>
+            <details class="manager-details">
+            <summary>
                 <span>13. Herbert P.</span>
                 <span class="right-side">
-                <span class="points-text">694 Pkt.</span>
+                <span class="points-text">693 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -485,7 +485,7 @@
             <summary>
                 <span>14. Horst Hrubesch</span>
                 <span class="right-side">
-                <span class="points-text">655 Pkt.</span>
+                <span class="points-text">657 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -500,7 +500,7 @@
                 </li>
                     <li class="player-item">
                     <span>Lienhart</span>
-                    <span class="points">128 Pkt.</span>
+                    <span class="points">127 Pkt.</span>
                 </li>
                     <li class="player-item">
                     <span>Ribeiro</span>
@@ -512,18 +512,18 @@
             <summary>
                 <span>15. Katapult</span>
                 <span class="right-side">
-                <span class="points-text">624 Pkt.</span>
+                <span class="points-text">608 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
             <ul class="player-list">
                   <li class="player-item">
                     <span>Wolf</span>
-                    <span class="points">253 Pkt.</span>
+                    <span class="points">238 Pkt.</span>
                 </li>
                     <li class="player-item">
                     <span>Behrens</span>
-                    <span class="points">140 Pkt.</span>
+                    <span class="points">143 Pkt.</span>
                 </li>
                     <li class="player-item">
                     <span>Rohr</span>
@@ -531,7 +531,7 @@
                 </li>
                     <li class="player-item">
                     <span>Friedl</span>
-                    <span class="points">74 Pkt.</span>
+                    <span class="points">70 Pkt.</span>
                 </li>
                 </ul>
         </details>
@@ -539,7 +539,7 @@
             <summary>
                 <span>16. Manuel Kulmer</span>
                 <span class="right-side">
-                <span class="points-text">511 Pkt.</span>
+                <span class="points-text">514 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -593,7 +593,7 @@
             <summary>
                 <span>18. BomberC</span>
                 <span class="right-side">
-                <span class="points-text">416 Pkt.</span>
+                <span class="points-text">415 Pkt.</span>
                 <span class="arrow-box"></span>
                 </span>
             </summary>
@@ -619,60 +619,43 @@
         </div>
 
     <script>
-        var totalManagers = {len(managers)};
-        var btn = document.getElementById('toggleAllBtn');
+        function toggleAllElements() {
+            var btn = document.getElementById('toggleAllBtn');
+            var detailsElements = document.getElementsByClassName('manager-details');
 
-        // Android-sichere Hauptfunktion
-        function doToggle(e) {{
-            if (e) {{ e.preventDefault(); }} // Verhindert, dass Android Touch-Events verschluckt
-            
-            var detailsElements = [];
             var anyClosed = false;
+            for (var i = 0; i < detailsElements.length; i++) {
+                if (!detailsElements[i].hasAttribute('open')) {
+                    anyClosed = true;
+                    break;
+                }
+            }
 
-            // Elemente über IDs sammeln (viel stabiler auf Android als GetElementsByClassName)
-            for (var i = 1; i <= totalManagers; i++) {{
-                var el = document.getElementById('manager-box-' + i);
-                if (el) {{
-                    detailsElements.push(el);
-                    if (!el.hasAttribute('open')) {{
-                        anyClosed = true;
-                    }}
-                }}
-            }}
-
-            // Zustand umschalten
-            for (var j = 0; j < detailsElements.length; j++) {{
-                if (anyClosed) {{
-                    detailsElements[j].setAttribute('open', 'open');
-                }} else {{
+            for (var j = 0; j < detailsElements.length; j++) {
+                if (anyClosed) {
+                    detailsElements[j].setAttribute('open', '');
+                } else {
                     detailsElements[j].removeAttribute('open');
-                }}
-            }}
+                }
+            }
 
-            // Text anpassen
-            btn.textContent = anyClosed ? 'Alle einklappen' : 'Alle aufklappen';
-        }}
+            btn.innerHTML = anyClosed ? 'Alle einklappen' : 'Alle aufklappen';
+        }
 
-        // Event-Listener für Mobilgeräte registrieren (sowohl Klick als auch Touch)
-        btn.addEventListener('click', doToggle, false);
-
-        // Überwachung für manuelle Klicks, um den Button-Text aktuell zu halten
-        for (var k = 1; k <= totalManagers; k++) {{
-            var box = document.getElementById('manager-box-' + k);
-            if (box) {{
-                box.addEventListener('toggle', function() {{
-                    var allOpen = true;
-                    for (var m = 1; m <= totalManagers; m++) {{
-                        var checkingBox = document.getElementById('manager-box-' + m);
-                        if (checkingBox && !checkingBox.hasAttribute('open')) {{
-                            allOpen = false;
-                            break;
-                        }
-                    }}
-                    btn.textContent = allOpen ? 'Alle einklappen' : 'Alle aufklappen';
-                }});
-            }}
-        }}
+        var elements = document.getElementsByClassName('manager-details');
+        for (var k = 0; k < elements.length; k++) {
+            elements[k].addEventListener('toggle', function() {
+                var btn = document.getElementById('toggleAllBtn');
+                var allOpen = true;
+                for (var m = 0; m < elements.length; m++) {
+                    if (!elements[m].hasAttribute('open')) {
+                        allOpen = false;
+                        break;
+                    }
+                }
+                btn.innerHTML = allOpen ? 'Alle einklappen' : 'Alle aufklappen';
+            });
+        }
     </script>
 </body>
 </html>
