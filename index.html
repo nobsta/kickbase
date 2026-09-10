@@ -3,1031 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manager Übersicht - Spieltag 2</title>
-       <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; background-color: #f4f4f9; color: #333; }
-
-        .accordion-container {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+    <title>Kickbase H2H Live-Tabelle</title>
+    <style>
+        :root {
+            --bg-color: #121824;
+            --card-bg: #1e2533;
+            --text-main: #ffffff;
+            --text-muted: #8e9bb0;
+            --accent: #00ff87; /* Neon-Grün für den sportlichen Vibe */
+            --border-color: #2c3547;
+            --row-hover: #252e3f;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
         }
 
-        .header-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-        }
-
-        .header-box-sub {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-        }
-
-
-        h2 { margin: 0; color: #2c3e50; }
-        h1 { margin: 0; color: #2c3e50; }
-
-        .toggle-all-btn {
-            background-color: #4a5568;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            font-size: 0.9em;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            user-select: none;
-        }
-
-        .toggle-all-btn:hover {
-            background-color: #2d3748;
-        }
-
-        details {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            overflow: hidden;
-            width: 100%;
-        }
-
-        summary {
-            padding: 15px 20px;
-            font-weight: bold;
-            font-size: 1.1em;
-            cursor: pointer;
-            background-color: #e2e8f0;
-            display: flex;
-            justify-content: space-between; /* Zwingt Box nach rechts */
-            align-items: center;
-            user-select: none;
-        }
-
-        summary:hover {
-            background-color: #cbd5e1;
-        }
-
-        summary::-webkit-details-marker { display: none; }
-        summary { list-style: none; }
-
-        .right-side {
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            color: #4a5568;
-        }
-
-        .points-text {
-            margin-right: 15px;
-        }
-
-        /* Der stabile CSS-Pfeil */
-        .arrow-box {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-bottom: 2px solid #4a5568;
-            border-right: 2px solid #4a5568;
-            transform: rotate(45deg);
-            transition: transform 0.2s ease;
-            margin-bottom: 4px;
-        }
-
-        details[open] .arrow-box {
-            transform: rotate(-135deg);
-            margin-bottom: -2px;
-        }
-
-        .player-list {
-            padding: 0;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
-            list-style: none;
-            border-top: 1px solid #cbd5e1;
-        }
-
-        .player-item {
-            padding: 12px 20px;
+            padding: 40px 20px;
             display: flex;
-            justify-content: space-between;
-            background-color: #ffffff;
-            border-bottom: 1px solid #f1f5f9;
+            justify-content: center;
         }
 
-        .player-item:last-child {
+        .table-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-header {
+            padding: 24px;
+            background: linear-gradient(135deg, #1e2533 0%, #151a26 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .table-header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .table-header p {
+            margin: 4px 0 0 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
             border-bottom: none;
         }
 
-        .player-points {
-            font-weight: bold;
-            color: #718096;
+        tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tr:hover {
+            background-color: var(--row-hover);
+        }
+
+        /* Spalten-Spezifikationen */
+        .col-rank { width: 60px; text-align: center; font-weight: 700; }
+        .col-name { font-weight: 600; }
+        .col-h2h { width: 100px; text-align: right; font-weight: 700; color: var(--accent); }
+        .col-pts { width: 120px; text-align: right; color: var(--text-muted); }
+
+        /* Medaillen/Badges für die Top 3 */
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 13px;
+        }
+
+        .rank-1 .rank-badge { background-color: rgba(255, 215, 0, 0.15); color: var(--gold); border: 1px solid var(--gold); }
+        .rank-2 .rank-badge { background-color: rgba(192, 192, 192, 0.15); color: var(--silver); border: 1px solid var(--silver); }
+        .rank-3 .rank-badge { background-color: rgba(205, 127, 50, 0.15); color: var(--bronze); border: 1px solid var(--bronze); }
+        .rank-normal { color: var(--text-muted); }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 480px) {
+            th, td { padding: 12px 16px; font-size: 14px; }
+            .table-header { padding: 16px; }
+            .table-header h1 { font-size: 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="header-box">
-        <h2>Manager & Spieler Spieltag 2 </br> 10.09.2026 10:33:56</h2>        
-        <button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAllElements()">Alle aufklappen</button>
-    </div>
-    <div class="header-box-sub"><h1>MVP: Tietz 321</h1>
-    <h1 style="text-align: right;"><a href="https://nobsta.github.io/kickbase/tabelle_s_h2h.html" style="color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent);">Tabelle</a></h1>
-    </div>
 
-    <div class="accordion-container">
-        <details class="manager-details">
-            <summary>
-                <span>1. Katapult</span>
-                <span class="right-side">
-                <span class="points-text">1372 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Vagnoman </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">310 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Becker </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">302 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Wolf </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">162 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Moreira </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">130 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>2. Ansa Josh</span>
-                <span class="right-side">
-                <span class="points-text">1219 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Mwene </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">302 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Bolin </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">286 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Eggestein </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">230 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Kobel </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">152 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>3. Quälix</span>
-                <span class="right-side">
-                <span class="points-text">1058 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Tietz </span>
-                    <span>MVP</span>
-                    <span>verkauft </span>
-                    <span class="points">321 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Dahmen </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">176 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Amiri </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">172 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Lemperle </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">128 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>4. Sir Alex</span>
-                <span class="right-side">
-                <span class="points-text">957 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Schick </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">242 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Honorat </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">142 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Backhaus </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">139 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Königsdörffer </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">132 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>5. Vel12</span>
-                <span class="right-side">
-                <span class="points-text">924 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Matanović </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">196 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Füllkrug </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">137 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Schwäbe </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">109 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Onyedika </span>
-                    <span></span>
-                    <span>verkauft 07.09.2026 18:29:03</span>
-                    <span class="points">94 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>6. Maestro Kloppo</span>
-                <span class="right-side">
-                <span class="points-text">881 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Kimmich </span>
-                    <span></span>
-                    <span>verkauft 08.09.2026 11:17:52</span>
-                    <span class="points">254 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Banks </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">130 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Potulski </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">130 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Fábio Silva </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">124 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>7. Horst Hrubesch </span>
-                <span class="right-side">
-                <span class="points-text">867 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Fernández </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">228 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Svensson </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">123 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Dinkçi </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">122 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Neuer </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">97 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>8. Iniestbert</span>
-                <span class="right-side">
-                <span class="points-text">860 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Prömel </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">223 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Ibrahimović </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">181 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Coufal </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">146 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Flekken </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">118 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>9. Patrick </span>
-                <span class="right-side">
-                <span class="points-text">811 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Gutiérrez </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">280 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Chabot </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">170 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Ebnoutalib </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">138 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Rönnow </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">90 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>10. Glanziator</span>
-                <span class="right-side">
-                <span class="points-text">774 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Medina </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">235 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Díaz </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">129 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Scherhant </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">122 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Tillman </span>
-                    <span></span>
-                    <span>verkauft 07.09.2026 07:48:35</span>
-                    <span class="points">98 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>11. HermannFessl</span>
-                <span class="right-side">
-                <span class="points-text">699 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Krattenmacher </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">275 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Quansah </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">197 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Nkunku </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">76 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Mickelson </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">58 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>12. Alfred Tatar </span>
-                <span class="right-side">
-                <span class="points-text">653 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Tah </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">232 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Rieder </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">221 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Noll </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">113 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Kabak </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">66 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>13. gassi</span>
-                <span class="right-side">
-                <span class="points-text">633 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Gruber </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">187 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Avdullahu </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">136 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Burkardt </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">114 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Katic </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">107 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>14. sebinator10</span>
-                <span class="right-side">
-                <span class="points-text">599 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Mittelstädt </span>
-                    <span></span>
-                    <span>verkauft 09.09.2026 07:27:49</span>
-                    <span class="points">213 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Bredlow </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">151 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Pieper </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">102 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Engelhardt </span>
-                    <span></span>
-                    <span>verkauft 08.09.2026 18:00:54</span>
-                    <span class="points">54 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>15. BomberC</span>
-                <span class="right-side">
-                <span class="points-text">548 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>García </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">231 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Pinckert </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">160 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Uzun </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">59 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Beier </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">56 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>16. Herbert P.</span>
-                <span class="right-side">
-                <span class="points-text">486 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Matsima </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">176 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Makengo </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">120 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Kleindienst </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">94 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Burger </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">58 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>17. Manuel Kulmer</span>
-                <span class="right-side">
-                <span class="points-text">446 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Davies </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">201 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Raum </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">106 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Kristof </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">105 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Mohya </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">48 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
-            <details class="manager-details">
-            <summary>
-                <span>18. Jose</span>
-                <span class="right-side">
-                <span class="points-text">0 Pkt.</span>
-                <span class="arrow-box"></span>
-                </span>
-            </summary>
-            <ul class="player-list">
-                  <li class="player-item">
-
-                    <span>Guirassy </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">232 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Keidel </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">184 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Pavlović </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">170 Pkt.</span>
-
-
-                </li>
-                    <li class="player-item">
-
-                    <span>Ginter </span>
-                    <span></span>
-                    <span> </span>
-                    <span class="points">148 Pkt.</span>
-
-
-                </li>
-                </ul>
-        </details>
+    <div class="table-container">
+        <div class="table-header">
+            <h1>🏆 Kickbase H2H Liga</h1>
+            <p>Aktueller Tabellenstand nach Spieltagspunkten</p>
+            <p><a href="https://nobsta.github.io/kickbase" style="color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent);">Spieltagspunkte</a></p>
         </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Pos</th>
+                    <th>Manager</th>
+                    <th style="text-align: right;"><a href="https://nobsta.github.io/kickbase/tabelle_s_h2h.html" style="color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent);">H2H Pkt</a></th>
+                    <th style="text-align: right;">KB Pkt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="rank-1">
+                    <td class="col-rank"><span class="rank-badge">1</span></td>
+                    <td class="col-name">Ansa Josh</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">2304</td>
+                </tr>
+                <tr class="rank-2">
+                    <td class="col-rank"><span class="rank-badge">2</span></td>
+                    <td class="col-name">Vel12</td>
+                    <td class="col-h2h">6</td>
+                    <td class="col-pts">2195</td>
+                </tr>
+                <tr class="rank-3">
+                    <td class="col-rank"><span class="rank-badge">3</span></td>
+                    <td class="col-name">Maestro Kloppo</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1999</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">4</span></td>
+                    <td class="col-name">Katapult</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1980</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">5</span></td>
+                    <td class="col-name">Quälix</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1916</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">6</span></td>
+                    <td class="col-name">Iniestbert</td>
+                    <td class="col-h2h">6</td>
+                    <td class="col-pts">1723</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">7</span></td>
+                    <td class="col-name">Sir Alex</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1676</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">8</span></td>
+                    <td class="col-name">sebinator10</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1624</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">9</span></td>
+                    <td class="col-name">Glanziator</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1619</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">10</span></td>
+                    <td class="col-name">Patrick </td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1589</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">11</span></td>
+                    <td class="col-name">Horst Hrubesch </td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1524</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">12</span></td>
+                    <td class="col-name">gassi</td>
+                    <td class="col-h2h">6</td>
+                    <td class="col-pts">1406</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">13</span></td>
+                    <td class="col-name">Alfred Tatar </td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1374</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">14</span></td>
+                    <td class="col-name">Herbert P.</td>
+                    <td class="col-h2h">0</td>
+                    <td class="col-pts">1179</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">15</span></td>
+                    <td class="col-name">HermannFessl</td>
+                    <td class="col-h2h">0</td>
+                    <td class="col-pts">1131</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">16</span></td>
+                    <td class="col-name">Jose</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">992</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">17</span></td>
+                    <td class="col-name">BomberC</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">963</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">18</span></td>
+                    <td class="col-name">Manuel Kulmer</td>
+                    <td class="col-h2h">0</td>
+                    <td class="col-pts">945</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <script>
-        function toggleAllElements() {
-            var btn = document.getElementById('toggleAllBtn');
-            var detailsElements = document.getElementsByClassName('manager-details');
-
-            var anyClosed = false;
-            for (var i = 0; i < detailsElements.length; i++) {
-                if (!detailsElements[i].hasAttribute('open')) {
-                    anyClosed = true;
-                    break;
-                }
-            }
-
-            for (var j = 0; j < detailsElements.length; j++) {
-                if (anyClosed) {
-                    detailsElements[j].setAttribute('open', '');
-                } else {
-                    detailsElements[j].removeAttribute('open');
-                }
-            }
-
-            btn.innerHTML = anyClosed ? 'Alle einklappen' : 'Alle aufklappen';
-        }
-
-        var elements = document.getElementsByClassName('manager-details');
-        for (var k = 0; k < elements.length; k++) {
-            elements[k].addEventListener('toggle', function() {
-                var btn = document.getElementById('toggleAllBtn');
-                var allOpen = true;
-                for (var m = 0; m < elements.length; m++) {
-                    if (!elements[m].hasAttribute('open')) {
-                        allOpen = false;
-                        break;
-                    }
-                }
-                btn.innerHTML = allOpen ? 'Alle einklappen' : 'Alle aufklappen';
-            });
-        }
-    </script>
 </body>
 </html>
