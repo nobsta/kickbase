@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager Übersicht - Spieltag 2</title>
        <style>
+        :root {
+            --bg-color: #121824;
+            --card-bg: #1e2533;
+            --text-main: #ffffff;
+            --text-muted: #8e9bb0;
+            --accent: #00ff87; /* Neon-Grün für den sportlichen Vibe */
+            --border-color: #2c3547;
+            --row-hover: #252e3f;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+        }
+
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; background-color: #f4f4f9; color: #333; }
 
         .accordion-container {
@@ -134,11 +147,11 @@
 </head>
 <body>
     <div class="header-box">
-        <h2>Manager & Spieler Spieltag 2 </br> 10.09.2026 15:09:23</h2>
+        <h2>Manager & Spieler Spieltag 2 </br> 10.09.2026 15:34:33</h2>
         <button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAllElements()">Alle aufklappen</button>
     </div>
     <div class="header-box-sub"><h1>MVP: Tietz 321</h1>
-    <h1 style="text-align: right;"><a href="https://nobsta.github.io/kickbase/tabelle_s_h2h.html" style="color: #007bff; text-decoration: underline;">klick zur Tabelle</a></h1>
+    <h1 style="text-align: right;"><a href="https://nobsta.github.io/kickbase/tabelle_s_h2h.html" style="color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent);">klick zur Tabelle</a></h1>
     </div>
 
     <div class="accordion-container">
