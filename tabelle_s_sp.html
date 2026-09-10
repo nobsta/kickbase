@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kickbase H2H Live-Tabelle</title>
+    <style>
+        :root {
+            --bg-color: #121824;
+            --card-bg: #1e2533;
+            --text-main: #ffffff;
+            --text-muted: #8e9bb0;
+            --accent: #00ff87; /* Neon-Grün für den sportlichen Vibe */
+            --border-color: #2c3547;
+            --row-hover: #252e3f;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-header {
+            padding: 24px;
+            background: linear-gradient(135deg, #1e2533 0%, #151a26 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .table-header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .table-header p {
+            margin: 4px 0 0 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tr:hover {
+            background-color: var(--row-hover);
+        }
+
+        /* Spalten-Spezifikationen */
+        .col-rank { width: 60px; text-align: center; font-weight: 700; }
+        .col-name { font-weight: 600; }
+        .col-h2h { width: 100px; text-align: right; font-weight: 700; color: var(--accent); }
+        .col-pts { width: 120px; text-align: right; color: var(--text-muted); }
+
+        /* Medaillen/Badges für die Top 3 */
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 13px;
+        }
+
+        .rank-1 .rank-badge { background-color: rgba(255, 215, 0, 0.15); color: var(--gold); border: 1px solid var(--gold); }
+        .rank-2 .rank-badge { background-color: rgba(192, 192, 192, 0.15); color: var(--silver); border: 1px solid var(--silver); }
+        .rank-3 .rank-badge { background-color: rgba(205, 127, 50, 0.15); color: var(--bronze); border: 1px solid var(--bronze); }
+        .rank-normal { color: var(--text-muted); }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 480px) {
+            th, td { padding: 12px 16px; font-size: 14px; }
+            .table-header { padding: 16px; }
+            .table-header h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <div class="table-header">
+            <h1>🏆 Kickbase H2H Liga</h1>
+            <p>Aktueller Tabellenstand & Gesamtpunkte</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Pos</th>
+                    <th>Manager</th>
+                    <th style="text-align: right;"><a href="https://nobsta.github.io/kickbase/tabelle_s_h2h.html" style="color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent);">H2H Pkt</a></th>
+                    <th style="text-align: right;">KB Pkt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="rank-1">
+                    <td class="col-rank"><span class="rank-badge">1</span></td>
+                    <td class="col-name">Ansa Josh</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">2304</td>
+                </tr>
+                <tr class="rank-2">
+                    <td class="col-rank"><span class="rank-badge">2</span></td>
+                    <td class="col-name">Vel12</td>
+                    <td class="col-h2h">6</td>
+                    <td class="col-pts">2195</td>
+                </tr>
+                <tr class="rank-3">
+                    <td class="col-rank"><span class="rank-badge">3</span></td>
+                    <td class="col-name">Maestro Kloppo</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1999</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">4</span></td>
+                    <td class="col-name">Katapult</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1980</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">5</span></td>
+                    <td class="col-name">Quälix</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1916</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">6</span></td>
+                    <td class="col-name">Iniestbert</td>
+                    <td class="col-h2h">6</td>
+                    <td class="col-pts">1723</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">7</span></td>
+                    <td class="col-name">Sir Alex</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1676</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">8</span></td>
+                    <td class="col-name">sebinator10</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1624</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">9</span></td>
+                    <td class="col-name">Glanziator</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1619</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">10</span></td>
+                    <td class="col-name">Patrick </td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1589</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">11</span></td>
+                    <td class="col-name">Horst Hrubesch </td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1524</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">12</span></td>
+                    <td class="col-name">gassi</td>
+                    <td class="col-h2h">6</td>
+                    <td class="col-pts">1406</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">13</span></td>
+                    <td class="col-name">Alfred Tatar </td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">1374</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">14</span></td>
+                    <td class="col-name">Herbert P.</td>
+                    <td class="col-h2h">0</td>
+                    <td class="col-pts">1179</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">15</span></td>
+                    <td class="col-name">HermannFessl</td>
+                    <td class="col-h2h">0</td>
+                    <td class="col-pts">1131</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">16</span></td>
+                    <td class="col-name">Jose</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">992</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">17</span></td>
+                    <td class="col-name">BomberC</td>
+                    <td class="col-h2h">3</td>
+                    <td class="col-pts">963</td>
+                </tr>
+                <tr >
+                    <td class="col-rank"><span class="rank-normal">18</span></td>
+                    <td class="col-name">Manuel Kulmer</td>
+                    <td class="col-h2h">0</td>
+                    <td class="col-pts">945</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
