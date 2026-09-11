@@ -39,8 +39,8 @@
 
         .header-box-sub {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; /* Stapelt die Elemente untereinander */
+            gap: 8px;               /* Erzeugt einen kleinen Abstand zwischen MVP und dem Link */
             max-width: 600px;
             margin: 0 auto 20px auto;
             color: var(--text-main);
@@ -149,7 +149,7 @@
 </head>
 <body>
     <div class="header-box">
-        <h2>Spieltag 2 </br> 11.09.2026 08:28:48</h2>
+        <h2>Spieltag 2 </br> 11.09.2026 08:33:30</h2>
         <button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAllElements()">Alle aufklappen</button>
     </div>
     <div class="header-box-sub"><h1>MVP: Tietz 321</h1>
