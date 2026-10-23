@@ -2,30 +2,65 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Achtelfinale Spielplan</title>
+    <title>Kickbase H2H LIGAAAA 1 - Achtelfinale</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 20px;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121824;
+            margin: 0;
+            padding: 24px;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
         }
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 15px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 960px;
+            background: #1a2234;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
-        .header-info {
+        .header-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
             display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            font-weight: bold;
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
-            margin-bottom: 0;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .header-subtitle {
+            font-size: 11px;
+            color: #ffffff; /* Auf Weiß geändert */
+            margin-bottom: 24px;
+        }
+        .spieltag-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        .spieltag-date {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        .spieltag-link {
+            font-size: 12px;
+            color: #00dfa2; /* Bleibt neongrün als Link */
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 24px;
+            border-bottom: 1px dashed rgba(0, 223, 162, 0.4);
+            padding-bottom: 2px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .spieltag-link:hover {
+            color: #00ffc4;
+            border-bottom-color: #00ffc4;
         }
         table {
             width: 100%;
@@ -33,201 +68,235 @@
             font-size: 13px;
         }
         th {
-            border-bottom: 2px solid #000;
-            padding: 6px 4px;
-            font-weight: bold;
+            color: #ffffff; /* Auf Weiß geändert */
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 12px 8px;
+            border-bottom: 1px solid #2d3748;
             text-align: center;
         }
         th.left, td.left {
             text-align: left;
         }
-        th.center, td.center {
-            text-align: center;
-        }
         td {
-            padding: 6px 4px;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 14px 8px;
+            color: #ffffff;
             vertical-align: middle;
         }
         .partie-row td {
-            border-bottom: none;
+            border-top: 1px solid #2d3748;
         }
         .partie-row-2 td {
-            border-bottom: 1px solid #b0b0b0;
+            border-bottom: 1px solid #2d3748;
         }
-        .bg-alt {
-            background-color: #f4f4f4;
+        .partie-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background-color: #242f47;
+            border-radius: 50%;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 12px;
+        }
+        .manager-name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .punkte-val {
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .punkte-mp {
+            color: #ffffff; /* Auf Weiß geändert */
+            font-weight: 500;
+            font-size: 12px;
+            margin-left: 4px;
+        }
+        .gesamt-score {
+            font-weight: 700;
+            font-size: 14px;
+            color: #ffffff;
         }
         .sieger-cell {
-            font-weight: bold;
-            font-size: 14px;
+            font-weight: 700;
+            color: #00dfa2; /* Bleibt grün hervorgehoben */
         }
         .unentschieden-icon {
-            font-size: 24px;
-            display: inline-block;
-            vertical-align: middle;
+            font-size: 20px;
         }
         .footer {
-            margin-top: 15px;
+            margin-top: 24px;
             font-size: 11px;
-            color: #666;
+            color: #ffffff; /* Auf Weiß geändert */
+            border-top: 1px solid #2d3748;
+            padding-top: 16px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-info">
-        <span>Achtelfinale</span>
-        <span>Hinspiel: Runde 7 vom 23. - 25. Okt // Rückspiel: Runde 9 vom 06. - 08. Nov</span>
+    <div class="header-title">
+        🏆 Kickbase H2H LIGAAAA 1
     </div>
+    <div class="header-subtitle">
+        Aktueller Achtelfinal-Spielplan nach H2H Punkten
+    </div>
+    
+    <div class="spieltag-title">Achtelfinale</div>
+    <div class="spieltag-date">KO-Phase (3 Runden)</div>
+    <a href="index.html" class="spieltag-link">Spieltagspunkte</a>
     
     <table>
         <thead>
             <tr>
-                <th style="width: 8%;" class="center">Partie</th>
-                <th style="width: 25%;" class="left">Spieler</th>
-                <th style="width: 13%;" class="center">Hin</th>
-                <th style="width: 13%;" class="center">Rück</th>
-                <th style="width: 13%;" class="center">3. Spiel</th>
-                <th style="width: 13%;" class="center">Gesamt</th>
-                <th style="width: 15%;" class="center">Sieger</th>
+                <th style="width: 8%;">Pos</th>
+                <th style="width: 26%;" class="left">Manager</th>
+                <th style="width: 13%;">Hin</th>
+                <th style="width: 13%;">Rück</th>
+                <th style="width: 13%;">3. Spiel</th>
+                <th style="width: 12%;">Gesamt</th> <!-- Spaltenüberschrift geändert -->
+                <th style="width: 15%;">Sieger</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="partie-row ">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">1</td>
-            <td class="left">Herbert P.</td>
-            <td class="center">800 (1)</td>
-            <td class="center">750 (1)</td>
-            <td class="center">10 (0)</td>
-            <td class="center">2</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><strong>Iniestbert</strong></td>
+            <tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">1</span></td>
+            <td class="left manager-name">Herbert P.</td>
+            <td align="center"><span class="punkte-val">800</span><span class="punkte-mp">(1)</span></td>
+            <td align="center"><span class="punkte-val">750</span><span class="punkte-mp">(1)</span></td>
+            <td align="center"><span class="punkte-val">10</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">2</td>
+            <td rowspan="2" align="center"><span class="sieger-cell">Iniestbert</span></td>
         </tr>
-<tr class="partie-row-2 ">
-            <td class="left">Iniestbert</td>
-            <td class="center">850 (1)</td>
-            <td class="center">750 (1)</td>
-            <td class="center">11 (3)</td>
-            <td class="center">5</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Iniestbert</td>
+            <td align="center"><span class="punkte-val">850</span><span class="punkte-mp">(1)</span></td>
+            <td align="center"><span class="punkte-val">750</span><span class="punkte-mp">(1)</span></td>
+            <td align="center"><span class="punkte-val">11</span><span class="punkte-mp">(3)</span></td>
+            <td align="center" class="gesamt-score">5</td>
         </tr>
-<tr class="partie-row bg-alt">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">2</td>
-            <td class="left">Team A3</td>
-            <td class="center">600 (1)</td>
-            <td class="center">70 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">1</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><strong>Team B4</strong></td>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">2</span></td>
+            <td class="left manager-name">Team A3</td>
+            <td align="center"><span class="punkte-val">600</span><span class="punkte-mp">(1)</span></td>
+            <td align="center"><span class="punkte-val">70</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">1</td>
+            <td rowspan="2" align="center"><span class="sieger-cell">Team B4</span></td>
         </tr>
-<tr class="partie-row-2 bg-alt">
-            <td class="left">Team B4</td>
-            <td class="center">600 (1)</td>
-            <td class="center">950 (3)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">4</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team B4</td>
+            <td align="center"><span class="punkte-val">600</span><span class="punkte-mp">(1)</span></td>
+            <td align="center"><span class="punkte-val">950</span><span class="punkte-mp">(3)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">4</td>
         </tr>
-<tr class="partie-row ">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">3</td>
-            <td class="left">Team C5</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><span class="unentschieden-icon">🤷‍♂️</span></td>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">3</span></td>
+            <td class="left manager-name">Team C5</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
-<tr class="partie-row-2 ">
-            <td class="left">Team D6</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team D6</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
         </tr>
-<tr class="partie-row bg-alt">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">4</td>
-            <td class="left">Team E7</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><span class="unentschieden-icon">🤷‍♂️</span></td>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">4</span></td>
+            <td class="left manager-name">Team E7</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
-<tr class="partie-row-2 bg-alt">
-            <td class="left">Team F8</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team F8</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
         </tr>
-<tr class="partie-row ">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">5</td>
-            <td class="left">Team G9</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><span class="unentschieden-icon">🤷‍♂️</span></td>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">5</span></td>
+            <td class="left manager-name">Team G9</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
-<tr class="partie-row-2 ">
-            <td class="left">Team H10</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team H10</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
         </tr>
-<tr class="partie-row bg-alt">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">6</td>
-            <td class="left">Team I11</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><span class="unentschieden-icon">🤷‍♂️</span></td>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">6</span></td>
+            <td class="left manager-name">Team I11</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
-<tr class="partie-row-2 bg-alt">
-            <td class="left">Team J12</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team J12</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
         </tr>
-<tr class="partie-row ">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">7</td>
-            <td class="left">Team K13</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><span class="unentschieden-icon">🤷‍♂️</span></td>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">7</span></td>
+            <td class="left manager-name">Team K13</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
-<tr class="partie-row-2 ">
-            <td class="left">Team L14</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team L14</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
         </tr>
-<tr class="partie-row bg-alt">
-            <td rowspan="2" class="center" style="font-weight: bold; border-bottom: 1px solid #b0b0b0;">8</td>
-            <td class="left">Team M15</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
-            <td rowspan="2" class="center sieger-cell" style="border-bottom: 1px solid #b0b0b0;"><span class="unentschieden-icon">🤷‍♂️</span></td>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">8</span></td>
+            <td class="left manager-name">Team M15</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
-<tr class="partie-row-2 bg-alt">
-            <td class="left">Team N16</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0 (0)</td>
-            <td class="center">0</td>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team N16</td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></td>
+            <td align="center" class="gesamt-score">0</td>
         </tr>
         </tbody>
     </table>
     
     <div class="footer">
-        aktualisiert: 23.10.2026 10:35 CET
+        aktualisiert: 23.10.2026 10:35:47 CET
     </div>
 </div>
 
