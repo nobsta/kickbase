@@ -2,13 +2,13 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Kickbase H2H LIGAAAA 1 - Achtelfinale</title>
+    <title>Kickbase LIGAAAA1 Pokal - Achtelfinale</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #121824;
             margin: 0;
-            padding: 24px;
+            padding: 16px;
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -18,7 +18,7 @@
             max-width: 960px;
             background: #1a2234;
             border-radius: 12px;
-            padding: 24px;
+            padding: 16px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
         .header-title {
@@ -28,32 +28,27 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 4px;
-        }
-        .header-subtitle {
-            font-size: 11px;
-            color: #ffffff; /* Auf Weiß geändert */
-            margin-bottom: 24px;
+            margin-bottom: 16px; /* Abstand nach unten vergrößert, da Subtitle fehlt */
         }
         .spieltag-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .spieltag-date {
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         .spieltag-link {
             font-size: 12px;
-            color: #00dfa2; /* Bleibt neongrün als Link */
+            color: #00dfa2;
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             border-bottom: 1px dashed rgba(0, 223, 162, 0.4);
             padding-bottom: 2px;
             transition: color 0.2s ease, border-color 0.2s ease;
@@ -68,11 +63,11 @@
             font-size: 13px;
         }
         th {
-            color: #ffffff; /* Auf Weiß geändert */
+            color: #ffffff;
             font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
-            padding: 12px 8px;
+            padding: 6px 4px;
             border-bottom: 1px solid #2d3748;
             text-align: center;
         }
@@ -80,7 +75,7 @@
             text-align: left;
         }
         td {
-            padding: 14px 8px;
+            padding: 6px 4px;
             color: #ffffff;
             vertical-align: middle;
         }
@@ -94,13 +89,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             background-color: #242f47;
             border-radius: 50%;
             font-weight: 700;
             color: #ffffff;
-            font-size: 12px;
+            font-size: 11px;
         }
         .manager-name {
             font-weight: 600;
@@ -111,29 +106,29 @@
             color: #ffffff;
         }
         .punkte-mp {
-            color: #ffffff; /* Auf Weiß geändert */
+            color: #ffffff;
             font-weight: 500;
-            font-size: 12px;
-            margin-left: 4px;
+            font-size: 11px;
+            margin-left: 3px;
         }
         .gesamt-score {
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
             color: #ffffff;
         }
         .sieger-cell {
             font-weight: 700;
-            color: #00dfa2; /* Bleibt grün hervorgehoben */
+            color: #00dfa2;
         }
         .unentschieden-icon {
-            font-size: 20px;
+            font-size: 18px;
         }
         .footer {
-            margin-top: 24px;
+            margin-top: 16px;
             font-size: 11px;
-            color: #ffffff; /* Auf Weiß geändert */
+            color: #ffffff;
             border-top: 1px solid #2d3748;
-            padding-top: 16px;
+            padding-top: 12px;
         }
     </style>
 </head>
@@ -141,10 +136,7 @@
 
 <div class="container">
     <div class="header-title">
-        🏆 Kickbase H2H LIGAAAA 1
-    </div>
-    <div class="header-subtitle">
-        Aktueller Achtelfinal-Spielplan nach H2H Punkten
+        🏆 Kickbase LIGAAAA1 Pokal
     </div>
     
     <div class="spieltag-title">Achtelfinale</div>
@@ -154,12 +146,12 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 8%;">Pos</th>
+                <th style="width: 8%;">AF</th> <!-- Spaltenbezeichnung geändert -->
                 <th style="width: 26%;" class="left">Manager</th>
                 <th style="width: 13%;">Hin</th>
                 <th style="width: 13%;">Rück</th>
                 <th style="width: 13%;">3. Spiel</th>
-                <th style="width: 12%;">Gesamt</th> <!-- Spaltenüberschrift geändert -->
+                <th style="width: 12%;">Gesamt</th>
                 <th style="width: 15%;">Sieger</th>
             </tr>
         </thead>
@@ -296,7 +288,7 @@
     </table>
     
     <div class="footer">
-        aktualisiert: 23.10.2026 10:35:47 CET
+        aktualisiert: 23.10.2026 12:07:06 CET
     </div>
 </div>
 
