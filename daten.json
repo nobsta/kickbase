@@ -1,0 +1,10 @@
+[
+  {"spiel": "AF1", "t1": "Herbert P.", "t2": "Iniestbert", "sp1": [800, 750, 0], "sp2": [850, 750, 0]},
+  {"spiel": "AF2", "t1": "Team A3", "t2": "Team B4", "sp1": [600, 70, 0], "sp2": [600, 950, 0]},
+  {"spiel": "AF3", "t1": "Team C5", "t2": "Team D6", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF4", "t1": "Team E7", "t2": "Team F8", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF5", "t1": "Team G9", "t2": "Team H10", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF6", "t1": "Team I11", "t2": "Team J12", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF7", "t1": "Team K13", "t2": "Team L14", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF8", "t1": "Team M15", "t2": "Team N16", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}
+]

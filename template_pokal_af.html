@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kickbase LIGAAAA1 Pokal - Achtelfinale</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121824;
+            margin: 0;
+            padding: 16px;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 960px;
+            background: #1a2234;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+        .header-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .spieltag-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+        .spieltag-date {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        .spieltag-link {
+            font-size: 12px;
+            color: #00dfa2;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed rgba(0, 223, 162, 0.4);
+            padding-bottom: 2px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .spieltag-link:hover {
+            color: #00ffc4;
+            border-bottom-color: #00ffc4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 6px 4px;
+            border-bottom: 1px solid #2d3748;
+            text-align: center;
+        }
+        th.left, td.left {
+            text-align: left;
+        }
+        td {
+            padding: 6px 4px;
+            color: #ffffff;
+            vertical-align: middle;
+        }
+        .partie-row td {
+            border-top: 1px solid #2d3748;
+        }
+        .partie-row-2 td {
+            border-bottom: 1px solid #2d3748;
+        }
+        .partie-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background-color: #242f47;
+            border-radius: 50%;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 11px;
+        }
+        .manager-name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .punkte-link {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .punkte-link:hover {
+            border-bottom-color: #00dfa2;
+        }
+        .punkte-val {
+            font-weight: 700;
+        }
+        .punkte-mp {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 11px;
+            margin-left: 3px;
+        }
+        .gesamt-score {
+            font-weight: 700;
+            font-size: 13px;
+            color: #ffffff;
+        }
+        .sieger-cell {
+            font-weight: 700;
+            color: #00dfa2;
+        }
+        .unentschieden-icon {
+            font-size: 18px;
+        }
+        .footer {
+            margin-top: 16px;
+            font-size: 11px;
+            color: #ffffff;
+            border-top: 1px solid #2d3748;
+            padding-top: 12px;
+        }
+        
+        /* Modal-Styling */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #1a2234;
+            border: 1px solid #2d3748;
+            border-radius: 12px;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            color: #ffffff;
+            position: relative;
+        }
+        .modal-header {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #00dfa2;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 8px;
+        }
+        .modal-subheader {
+            font-size: 12px;
+            color: #a0aec0;
+            margin-bottom: 14px;
+        }
+        .modal-rule-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #242f47;
+            font-size: 13px;
+        }
+        .modal-rule-row:last-child {
+            border-bottom: none;
+        }
+        .rule-label {
+            font-weight: 600;
+        }
+        .rule-range {
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .close-btn {
+            background: #242f47;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            width: 100%;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+        .close-btn:hover {
+            background: #2d3748;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-title">
+        🏆 Kickbase LIGAAAA1 Pokal
+    </div>
+    
+    <div class="spieltag-title">Achtelfinale</div>
+    <div class="spieltag-date">KO-Phase (3 Runden)</div>
+    <a href="index.html" class="spieltag-link">Spieltagspunkte</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 8%;">AF</th>
+                <th style="width: 26%;" class="left">Manager</th>
+                <th style="width: 13%;">Hin</th>
+                <th style="width: 13%;">Rück</th>
+                <th style="width: 13%;">3. Spiel</th>
+                <th style="width: 12%;">Gesamt</th>
+                <th style="width: 15%;">Sieger</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[ROWS_PLACEHOLDER]-->
+        </tbody>
+    </table>
+    
+    <div class="footer">
+        aktualisiert: <!--[ZEITSTEMPEL_PLACEHOLDER]--> CET
+    </div>
+</div>
+
+<div id="infoModal" class="modal-overlay" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header" id="modalTitle">Matchpunkte-Kriterien</div>
+        <div class="modal-subheader" id="modalSubtitle">Paarung-Details</div>
+        
+        <div class="modal-rule-row">
+            <span class="rule-label">0 Matchpunkte:</span>
+            <span class="rule-range" id="rule0">-</span>
+        </div>
+        <div class="modal-rule-row">
+            <span class="rule-label">1 Matchpunkt:</span>
+            <span class="rule-range" id="rule1">-</span>
+        </div>
+        <div class="modal-rule-row">
+            <span class="rule-label">3 Matchpunkte:</span>
+            <span class="rule-range" id="rule3">-</span>
+        </div>
+        
+        <button class="close-btn" onclick="closeModal()">Schließen</button>
+    </div>
+</div>
+<script>
+function showInfo(isRound3, pAktiv, pGegner, nameAktiv, nameGegner) {
+    const modal = document.getElementById('infoModal');
+    const title = document.getElementById('modalTitle');
+    const subtitle = document.getElementById('modalSubtitle');
+    const r0 = document.getElementById('rule0');
+    const r1 = document.getElementById('rule1');
+    const r3 = document.getElementById('rule3');
+    
+    title.innerText = "Matchpunkte für " + nameAktiv;
+    subtitle.innerText = "Gegner: " + nameGegner + " (" + pGegner + " Pkt.)";
+    
+    if (isRound3) {
+        r0.innerText = "Bei weniger Punkten als " + pGegner;
+        r1.innerText = "Bei exakt " + pGegner + " Punkten";
+        r3.innerText = "Bei mehr Punkten als " + pGegner;
+    } else {
+        // Wenn das Spiel noch nicht stattgefunden hat
+        if (pAktiv === 0 && pGegner === 0) {
+            r0.innerText = "Beide 0 Punkte";
+            r1.innerText = "Nicht gestartet";
+            r3.innerText = "Nicht gestartet";
+            modal.style.display = 'flex';
+            return;
+        }
+
+        // PERSPEKTIVE A: Geklickter Spieler hat WENIGER oder GLEICH viele Punkte (ist der Verfolger/Gleichauf)
+        if (pAktiv <= pGegner) {
+            const huerde1Pkt = Math.ceil(pGegner * 0.85);
+            
+            r0.innerText = "< " + huerde1Pkt + " Pkt. (weniger als 85% von " + pGegner + ")";
+            r1.innerText = huerde1Pkt + " bis " + (Math.floor(pGegner * 1.15) + 1) + " Pkt. (Abstand zu " + nameGegner + " < 15%)";
+            r3.innerText = "Ab " + (Math.floor(pGegner * 1.15) + 1) + " Pkt. (15% mehr Punkte als " + nameGegner + ")";
+        } 
+        // PERSPEKTIVE B: Geklickter Spieler hat MEHR Punkte (ist der aktuelle Tagessieger)
+        else {
+            // Der Sieger benötigt die Punkte des Verlierers geteilt durch 0.85, 
+            // um zu wissen, ab wann der Abstand groß genug für 3 Punkte ist!
+            const huerde3Pkt = Math.floor(pGegner * 0.85) + 1;
+            
+            r0.innerText = "< " + huerde3Pkt + " Pkt. (weniger als 85% von " + pGegner + ")";
+            r1.innerText = huerde3Pkt + " bis " + (Math.floor(pGegner * 1.15) + 1) + " Pkt. (> 85% und < +15% von " + pGegner +")";
+            r3.innerText = "Ab " + (Math.floor(pGegner * 1.15) + 1) + " Pkt. (> " + pGegner + " +15%)";
+        }
+    }
+    
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('infoModal').style.display = 'none';
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+</script>
+
+</body>
+</html>
