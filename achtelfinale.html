@@ -15,14 +15,14 @@
         }
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 960px;
             background: #1a2234;
             border-radius: 12px;
             padding: 16px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
         .header-title {
-            font-size: 25px;
+            font-size: 15px;
             font-weight: 700;
             color: #ffffff;
             display: flex;
@@ -31,7 +31,7 @@
             margin-bottom: 16px;
         }
         .spieltag-title {
-            font-size: 25px;
+            font-size: 18px;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 2px;
@@ -43,7 +43,7 @@
             margin-bottom: 12px;
         }
         .spieltag-link {
-            font-size: 30px;
+            font-size: 12px;
             color: #00dfa2;
             font-weight: 600;
             text-decoration: none;
@@ -60,11 +60,11 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 25px;
+            font-size: 13px;
         }
         th {
             color: #ffffff;
-            font-size: 25px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             padding: 6px 4px;
@@ -122,7 +122,7 @@
         }
         .gesamt-score {
             font-weight: 700;
-            font-size: 25px;
+            font-size: 13px;
             color: #ffffff;
         }
         .sieger-cell {
@@ -130,11 +130,11 @@
             color: #00dfa2;
         }
         .unentschieden-icon {
-            font-size: 30px;
+            font-size: 18px;
         }
         .footer {
             margin-top: 16px;
-            font-size: 15px;
+            font-size: 11px;
             color: #ffffff;
             border-top: 1px solid #2d3748;
             padding-top: 12px;
@@ -174,7 +174,7 @@
             padding-bottom: 8px;
         }
         .modal-subheader {
-            font-size: 15px;
+            font-size: 12px;
             color: #a0aec0;
             margin-bottom: 14px;
         }
@@ -231,145 +231,145 @@
                 <th style="width: 26%;" class="left">Manager</th>
                 <th style="width: 13%;">Hin</th>
                 <th style="width: 13%;">Rück</th>
-                <th style="width: 13%;">3. Sp.</th>
-                <th style="width: 12%;">Ges</th>
+                <th style="width: 13%;">3. Spiel</th>
+                <th style="width: 12%;">Gesamt</th>
                 <th style="width: 15%;">Sieger</th>
             </tr>
         </thead>
         <tbody>
             <tr class="partie-row">
             <td rowspan="2" align="center"><span class="partie-badge">1</span></td>
-            <td class="left manager-name">Glanziator</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 132, 95, 'Glanziator', 'Maestro Kloppo')"><span class="punkte-val">132</span><span class="punkte-mp">(3)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Glanziator', 'Maestro Kloppo')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Glanziator', 'Maestro Kloppo')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">3</td>
-            <td rowspan="2" align="center"><span class="sieger-cell">Glanziator</span></td>
+            <td class="left manager-name">Herbert P.</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 296, 403, 'Herbert P.', 'Iniestbert')"><span class="punkte-val">296</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Herbert P.', 'Iniestbert')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Herbert P.', 'Iniestbert')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="sieger-cell">Iniestbert</span></td>
         </tr>
 <tr class="partie-row-2">
-            <td class="left manager-name">Maestro Kloppo</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 95, 132, 'Maestro Kloppo', 'Glanziator')"><span class="punkte-val">95</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Maestro Kloppo', 'Glanziator')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Maestro Kloppo', 'Glanziator')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">0</td>
+            <td class="left manager-name">Iniestbert</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 403, 296, 'Iniestbert', 'Herbert P.')"><span class="punkte-val">403</span><span class="punkte-mp">(3)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Iniestbert', 'Herbert P.')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Iniestbert', 'Herbert P.')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">3</td>
         </tr>
 <tr class="partie-row">
             <td rowspan="2" align="center"><span class="partie-badge">2</span></td>
-            <td class="left manager-name">Iniestbert</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Iniestbert', 'Katapult')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Iniestbert', 'Katapult')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Iniestbert', 'Katapult')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">0</td>
-            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
+            <td class="left manager-name">Team A3</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 600, 600, 'Team A3', 'Team B4')"><span class="punkte-val">600</span><span class="punkte-mp">(1)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 70, 950, 'Team A3', 'Team B4')"><span class="punkte-val">70</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team A3', 'Team B4')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">1</td>
+            <td rowspan="2" align="center"><span class="sieger-cell">Team B4</span></td>
         </tr>
 <tr class="partie-row-2">
-            <td class="left manager-name">Katapult</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Katapult', 'Iniestbert')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Katapult', 'Iniestbert')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Katapult', 'Iniestbert')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">0</td>
+            <td class="left manager-name">Team B4</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 600, 600, 'Team B4', 'Team A3')"><span class="punkte-val">600</span><span class="punkte-mp">(1)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 950, 70, 'Team B4', 'Team A3')"><span class="punkte-val">950</span><span class="punkte-mp">(3)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team B4', 'Team A3')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">4</td>
         </tr>
 <tr class="partie-row">
             <td rowspan="2" align="center"><span class="partie-badge">3</span></td>
-            <td class="left manager-name">Vel12</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 42, 108, 'Vel12', 'sebinator10')"><span class="punkte-val">42</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Vel12', 'sebinator10')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Vel12', 'sebinator10')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">0</td>
-            <td rowspan="2" align="center"><span class="sieger-cell">sebinator10</span></td>
-        </tr>
-<tr class="partie-row-2">
-            <td class="left manager-name">sebinator10</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 108, 42, 'sebinator10', 'Vel12')"><span class="punkte-val">108</span><span class="punkte-mp">(3)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'sebinator10', 'Vel12')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'sebinator10', 'Vel12')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">3</td>
-        </tr>
-<tr class="partie-row">
-            <td rowspan="2" align="center"><span class="partie-badge">4</span></td>
-            <td class="left manager-name">Sir Alex</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Sir Alex', 'Patrick')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Sir Alex', 'Patrick')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Sir Alex', 'Patrick')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td class="left manager-name">Team C5</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team C5', 'Team D6')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team C5', 'Team D6')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team C5', 'Team D6')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
             <td align="center" class="gesamt-score">0</td>
             <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
 <tr class="partie-row-2">
-            <td class="left manager-name">Patrick</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Patrick', 'Sir Alex')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Patrick', 'Sir Alex')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Patrick', 'Sir Alex')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td class="left manager-name">Team D6</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team D6', 'Team C5')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team D6', 'Team C5')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team D6', 'Team C5')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">0</td>
+        </tr>
+<tr class="partie-row">
+            <td rowspan="2" align="center"><span class="partie-badge">4</span></td>
+            <td class="left manager-name">Team E7</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team E7', 'Team F8')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team E7', 'Team F8')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team E7', 'Team F8')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
+        </tr>
+<tr class="partie-row-2">
+            <td class="left manager-name">Team F8</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team F8', 'Team E7')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team F8', 'Team E7')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team F8', 'Team E7')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
             <td align="center" class="gesamt-score">0</td>
         </tr>
 <tr class="partie-row">
             <td rowspan="2" align="center"><span class="partie-badge">5</span></td>
-            <td class="left manager-name">gassi</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 97, 0, 'gassi', 'Alfred Tatar')"><span class="punkte-val">97</span><span class="punkte-mp">(3)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'gassi', 'Alfred Tatar')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'gassi', 'Alfred Tatar')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">3</td>
-            <td rowspan="2" align="center"><span class="sieger-cell">gassi</span></td>
+            <td class="left manager-name">Team G9</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team G9', 'Team H10')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team G9', 'Team H10')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team G9', 'Team H10')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
 <tr class="partie-row-2">
-            <td class="left manager-name">Alfred Tatar</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 97, 'Alfred Tatar', 'gassi')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Alfred Tatar', 'gassi')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Alfred Tatar', 'gassi')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td class="left manager-name">Team H10</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team H10', 'Team G9')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team H10', 'Team G9')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team H10', 'Team G9')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
             <td align="center" class="gesamt-score">0</td>
         </tr>
 <tr class="partie-row">
             <td rowspan="2" align="center"><span class="partie-badge">6</span></td>
-            <td class="left manager-name">Jose</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 206, 'Jose', 'Ansa Josh')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Jose', 'Ansa Josh')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Jose', 'Ansa Josh')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td class="left manager-name">Team I11</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team I11', 'Team J12')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team I11', 'Team J12')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team I11', 'Team J12')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
             <td align="center" class="gesamt-score">0</td>
-            <td rowspan="2" align="center"><span class="sieger-cell">Ansa Josh</span></td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
 <tr class="partie-row-2">
-            <td class="left manager-name">Ansa Josh</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 206, 0, 'Ansa Josh', 'Jose')"><span class="punkte-val">206</span><span class="punkte-mp">(3)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Ansa Josh', 'Jose')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Ansa Josh', 'Jose')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">3</td>
+            <td class="left manager-name">Team J12</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team J12', 'Team I11')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team J12', 'Team I11')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team J12', 'Team I11')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">0</td>
         </tr>
 <tr class="partie-row">
             <td rowspan="2" align="center"><span class="partie-badge">7</span></td>
-            <td class="left manager-name">Manuel Kulmer</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 249, 0, 'Manuel Kulmer', 'Herbert P.')"><span class="punkte-val">249</span><span class="punkte-mp">(3)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Manuel Kulmer', 'Herbert P.')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Manuel Kulmer', 'Herbert P.')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">3</td>
-            <td rowspan="2" align="center"><span class="sieger-cell">Manuel Kulmer</span></td>
+            <td class="left manager-name">Team K13</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team K13', 'Team L14')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team K13', 'Team L14')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team K13', 'Team L14')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
 <tr class="partie-row-2">
-            <td class="left manager-name">Herbert P.</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 249, 'Herbert P.', 'Manuel Kulmer')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Herbert P.', 'Manuel Kulmer')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Herbert P.', 'Manuel Kulmer')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td class="left manager-name">Team L14</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team L14', 'Team K13')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team L14', 'Team K13')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team L14', 'Team K13')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
             <td align="center" class="gesamt-score">0</td>
         </tr>
 <tr class="partie-row">
             <td rowspan="2" align="center"><span class="partie-badge">8</span></td>
-            <td class="left manager-name">Quälix</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 114, 0, 'Quälix', 'BomberC')"><span class="punkte-val">114</span><span class="punkte-mp">(3)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Quälix', 'BomberC')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Quälix', 'BomberC')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center" class="gesamt-score">3</td>
-            <td rowspan="2" align="center"><span class="sieger-cell">Quälix</span></td>
+            <td class="left manager-name">Team M15</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team M15', 'Team N16')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team M15', 'Team N16')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team M15', 'Team N16')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center" class="gesamt-score">0</td>
+            <td rowspan="2" align="center"><span class="unentschieden-icon">🤷‍♂️</span></td>
         </tr>
 <tr class="partie-row-2">
-            <td class="left manager-name">BomberC</td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 114, 'BomberC', 'Quälix')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'BomberC', 'Quälix')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
-            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'BomberC', 'Quälix')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td class="left manager-name">Team N16</td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team N16', 'Team M15')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(false, 0, 0, 'Team N16', 'Team M15')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
+            <td align="center"><a class="punkte-link" onclick="showInfo(true, 0, 0, 'Team N16', 'Team M15')"><span class="punkte-val">0</span><span class="punkte-mp">(0)</span></a></td>
             <td align="center" class="gesamt-score">0</td>
         </tr>
         </tbody>
     </table>
     
     <div class="footer">
-        aktualisiert: 23.10.2026 23:14:21 CET
+        aktualisiert: 24.10.2026 21:57:28 CET
     </div>
 </div>
 
@@ -425,7 +425,7 @@ function showInfo(isRound3, pAktiv, pGegner, nameAktiv, nameGegner) {
             const huerde1Pkt = Math.ceil(pGegner * 0.85);
             
             r0.innerText = "< " + huerde1Pkt + " Pkt. (weniger als 85% von " + pGegner + ")";
-            r1.innerText = huerde1Pkt + " bis " + (Math.floor(pGegner * 1.15) + 1) + " Pkt. (> 85% und < +15% von " + pGegner +")";
+            r1.innerText = huerde1Pkt + " bis " + (Math.floor(pGegner * 1.15) + 1) + " Pkt. (Abstand zu " + nameGegner + " < 15%)";
             r3.innerText = "Ab " + (Math.floor(pGegner * 1.15) + 1) + " Pkt. (15% mehr Punkte als " + nameGegner + ")";
         } 
         // PERSPEKTIVE B: Geklickter Spieler hat MEHR Punkte (ist der aktuelle Tagessieger)
