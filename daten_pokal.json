@@ -1,0 +1,60 @@
+[
+{"af":[7,9,10],
+	"games" : [
+  {"spiel": "AF1", "t1": "Glanziator", "t2": "Maestro Kloppo", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF2", "t1": "Iniestbert", "t2": "Katapult", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF3", "t1": "Vel12", "t2": "sebinator10", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF4", "t1": "Sir Alex", "t2": "Patrick", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF5", "t1": "gassi", "t2": "Alfred Tatar", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF6", "t1": "Jose", "t2": "Ansa Josh", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF7", "t1": "Manuel Kulmer", "t2": "Herbert P.", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "AF8", "t1": "Quälix", "t2": "BomberC", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}
+	]
+},
+
+{"vfa":[14,15,16],
+	"games" : [
+  {"spiel": "VF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "VF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "VF3", "t1": "Team3", "t2": "Team7", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "VF4", "t1": "Team4", "t2": "Team8", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}
+	]
+},
+
+{"hfa":[26,28,29],
+	"games" : [
+  {"spiel": "HF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "HF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
+	]
+},
+
+{"fia":[32,33,34],
+	"games" : [
+  {"spiel": "FI1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
+	]
+},
+
+{"vfb":[14,15,16],
+	"games" : [
+  {"spiel": "VF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "VF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "VF3", "t1": "Team3", "t2": "Team7", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "VF4", "t1": "Team4", "t2": "Team8", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}
+	]
+},
+
+{"hfb":[26,28,29],
+	"games" : [
+  {"spiel": "HF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
+  {"spiel": "HF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
+	]
+},
+
+{"fib":[32,33,34],
+	"games" : [
+  {"spiel": "FI1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
+	]
+}
+
+
+]
