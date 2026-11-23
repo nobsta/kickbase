@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnierbaum - Kompaktes Raster</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121824;
+            margin: 0;
+            padding: 20px;
+            color: #ffffff;
+        }
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;            
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        .bracket-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1750px;
+            margin: 0 auto;
+            overflow-x: auto;
+            padding: 20px 10px;
+            gap: 25px;
+            color: #ffffff;
+        }
+        .round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 950px;
+            min-width: 320px;
+        }
+        .round-title {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .match-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100%;
+        }
+        .matchup {
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .matchup-header {
+            display: flex;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 9px;
+            font-weight: 800;
+            color: #94a3b8;
+            text-align: center;
+            padding: 5px 12px;
+            text-transform: uppercase;
+        }
+        .team-row {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            font-size: 11px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .team-row:last-child {
+            border-bottom: none;
+        }
+
+        /* Flex-Breiten für saubere Tabellenspalten */
+        .col-team { flex: 2.2; text-align: left; font-weight: 600; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-size: 12px; }
+        .col-st { flex: 1.1; text-align: center; color: #475569; }
+        .col-total { flex: 0.8; text-align: right; font-weight: 700; font-size: 13px; }
+
+        .team-name { color: #1e293b; }
+        .match-punkte-inline { color: #64748b; font-size: 10px; font-weight: normal; margin-left: 2px; }
+        .gesamt-stand { color: #0f172a; }
+
+        /* Grünes Highlight für den Gewinner */
+        .highlight-green {
+            background-color: #2ecc71 !important;
+        }
+        .highlight-green .team-name,
+        .highlight-green .col-st,
+        .highlight-green .match-punkte-inline,
+        .highlight-green .gesamt-stand {
+            color: white !important;
+        }
+
+        /* Sieger-Box Styling */
+        .winner-box {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(241, 196, 15, 0.3);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dynamischer Turnierbaum</h1>
+    <div class="subtitle">Spieltagespunkte mit Matchpunkten in Klammern und Gesamtpunkten (GES)</div>
+
+    <div class="bracket-container">
+                <!-- ACHTELFINALE -->
+        <div class="round">
+            <div class="round-title">Achtelfinale</div>
+            <div class="match-list">
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">Glanziator</span>
+                        <span class="col-st">804<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">990<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">1</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">Maestro Kloppo</span>
+                        <span class="col-st">743<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">1267<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">4</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">Iniestbert</span>
+                        <span class="col-st">552<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">507<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">Katapult</span>
+                        <span class="col-st">765<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">870<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">6</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">Vel12</span>
+                        <span class="col-st">794<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">1000<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">4</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">sebinator10</span>
+                        <span class="col-st">752<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">740<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">1</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">Sir Alex</span>
+                        <span class="col-st">499<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">1138<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">1</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">Patrick</span>
+                        <span class="col-st">728<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">1086<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">4</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">gassi</span>
+                        <span class="col-st">921<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">827<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">1</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">Alfred Tatar</span>
+                        <span class="col-st">1157<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">904<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">4</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">Jose</span>
+                        <span class="col-st">544<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">643<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">1</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">Ansa Josh</span>
+                        <span class="col-st">782<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">590<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">4</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">Manuel Kulmer</span>
+                        <span class="col-st">665<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">325<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">1</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">Herbert P.</span>
+                        <span class="col-st">732<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">1433<span class="match-punkte-inline">(3)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">4</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">Quälix</span>
+                        <span class="col-st">725<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">970<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">621<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">2</span>
+                    </div>
+                    <div class="team-row highlight-green">
+                        <span class="team-name col-team">BomberC</span>
+                        <span class="col-st">684<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">908<span class="match-punkte-inline">(1)</span></span>
+                        <span class="col-st">959<span class="match-punkte-inline">(3)</span></span>
+                        <span class="gesamt-stand col-total">5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIERTELFINALE -->
+        <div class="round">
+            <div class="round-title">Viertelfinale</div>
+            <div class="match-list">
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALBINALE -->
+        <div class="round">
+            <div class="round-title">Halbinale</div>
+            <div class="match-list">
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                </div>
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINALE -->
+        <div class="round">
+            <div class="round-title">Finale</div>
+            <div class="match-list">
+                <div class="matchup">
+                    <div class="matchup-header">
+                        <span class="col-team">Mannschaft</span>
+                        <span class="col-st">ST1</span>
+                        <span class="col-st">ST2</span>
+                        <span class="col-st">ST3</span>
+                        <span class="col-total">GES</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                    <div class="team-row">
+                        <span class="team-name col-team">TBD</span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="col-st">0<span class="match-punkte-inline">(0)</span></span>
+                        <span class="gesamt-stand col-total">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- SIEGER BOX -->
+        <div class="round">
+            <div class="round-title">Sieger</div>
+            <div class="match-list">
+                <div class="winner-box">
+                    🏆 TBD
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
