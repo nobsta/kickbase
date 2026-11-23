@@ -1,5 +1,5 @@
 [
-{"af":[7,9,10],
+{runde:"af", "spieltag":[7,9,10],
 	"games" : [
   {"spiel": "AF1", "t1": "Glanziator", "t2": "Maestro Kloppo", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
   {"spiel": "AF2", "t1": "Iniestbert", "t2": "Katapult", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
@@ -12,7 +12,7 @@
 	]
 },
 
-{"vfa":[14,15,16],
+{runde:"vfa", "spieltag":[14,15,16],
 	"games" : [
   {"spiel": "VF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
   {"spiel": "VF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
@@ -21,20 +21,20 @@
 	]
 },
 
-{"hfa":[26,28,29],
+{runde:"hfa", spieltag:[26,28,29],
 	"games" : [
   {"spiel": "HF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
   {"spiel": "HF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
 	]
 },
 
-{"fia":[32,33,34],
+{runde:"fia", spieltag:[32,33,34],
 	"games" : [
   {"spiel": "FI1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
 	]
 },
 
-{"vfb":[14,15,16],
+{runde:"vfb", spieltag:[14,15,16],
 	"games" : [
   {"spiel": "VF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
   {"spiel": "VF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
@@ -43,14 +43,14 @@
 	]
 },
 
-{"hfb":[26,28,29],
+{runde:"hfb", spieltag:[26,28,29],
 	"games" : [
   {"spiel": "HF1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]},
   {"spiel": "HF2", "t1": "Team2", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
 	]
 },
 
-{"fib":[32,33,34],
+{runde:"fib", spieltag:[32,33,34],
 	"games" : [
   {"spiel": "FI1", "t1": "Team1", "t2": "Team5", "sp1": [0, 0, 0], "sp2": [0, 0, 0]}  
 	]
